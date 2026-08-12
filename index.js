@@ -9,13 +9,7 @@ const { errorHandler } = require("./auth");
 
 const app = express();
 
-const corsOptions = {
-    origin: ["http://localhost:8000", "http://localhost:5173", "http://localhost:5174"],
-    credentials: true,
-    optionsSuccessStatus: 200,
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_STRING);
