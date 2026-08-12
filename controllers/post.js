@@ -25,6 +25,13 @@ module.exports.getAllPosts = (req, res, next) => {
         .catch((err) => next(err));
 };
 
+// View all active blog posts
+module.exports.getAllActive = (req, res, next) => {
+    return Post.find({ isActive: true })
+        .then((posts) => res.status(200).send(posts))
+        .catch((err) => next(err));
+};
+
 // View a single blog post by ID
 module.exports.getPost = (req, res, next) => {
     return Post.findById(req.params.id)

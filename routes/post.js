@@ -5,6 +5,8 @@ const { verify } = require("../auth");
 
 router.post("/", verify, postController.addPost);
 router.get("/", postController.getAllPosts);
+
+router.get("/active", postController.getAllActive); 
 router.get("/:id", postController.getPost);
 router.patch("/:id", verify, postController.updatePost);
 router.delete("/:id", verify, postController.deletePost);
